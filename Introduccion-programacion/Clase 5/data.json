@@ -1,0 +1,17 @@
+[
+  {
+    "marca": "peugeot",
+    "puertas": 5,
+    "ruedas": "Michelin"
+  },
+  {
+    "marca": "toyota",
+    "puertas": 5,
+    "ruedas": "random2"
+  },
+  {
+    "marca": "peugeot",
+    "puertas": 4,
+    "ruedas": "Bridgston"
+  }
+]
