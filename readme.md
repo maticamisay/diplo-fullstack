@@ -1,0 +1,1 @@
+![Texto alternativo](zapatilla.jpeg)

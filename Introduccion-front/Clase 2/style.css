@@ -1,0 +1,26 @@
+/* estilos de fondo al body */
+body {
+  background-color: #f5f5f5;
+}
+
+/* estilos a los titulos */
+h1 {
+  color: #000;
+  font-size: 2rem;
+}
+
+/* estilos a los textos */
+
+/* estilos a los botones */
+
+/* 
+color
+background-color
+font-size
+*/
+
+/* estilos para navbar */
+.navbar {
+  background-color: #fff;
+  border-bottom: 1px solid #e5e5e5;
+}
