@@ -7,9 +7,15 @@ body {
 h1 {
   color: #000;
   font-size: 2rem;
+  text-align: end;
 }
 
 /* estilos a los textos */
+
+p{
+  color: #2f2e2e;
+  font-size: 1rem;
+}
 
 /* estilos a los botones */
 
