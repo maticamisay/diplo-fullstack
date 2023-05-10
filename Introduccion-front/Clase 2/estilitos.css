@@ -7,12 +7,12 @@ body {
 h1 {
   color: #000;
   font-size: 2rem;
-  text-align: end;
+  text-align: center;
 }
 
 /* estilos a los textos */
 
-p{
+p {
   color: #2f2e2e;
   font-size: 1rem;
 }
@@ -30,3 +30,38 @@ font-size
   background-color: #fff;
   border-bottom: 1px solid #e5e5e5;
 }
+
+.titulo {
+  color: red;
+}
+
+.boton {
+  color: #fff;
+  background-color: gray;
+  font-size: 14px;
+  padding: 10px;
+  border: 5px solid red;
+  margin: 5px;
+}
+
+.boton-secundario {
+  color: #fff;
+  background-color: #6c757d;
+  font-size: 14px;
+}
+
+li {
+  padding: 10px;
+  border: 5px solid red;
+  margin: 30px;
+  width: 30vw;
+  width: 30%;
+  width: 300px;
+  width: 15rem
+}
+
+/* width:50%;     ||  50% del ancho del padre */
+
+/* 100vw = 100% view width */
+
+/* 30 vh = 30% view height */
