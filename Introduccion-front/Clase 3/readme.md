@@ -102,3 +102,10 @@ La propiedad `box-sizing` es utilizada para definir cómo se calcula el ancho y 
 El modelo de caja en CSS es una herramienta fundamental para el diseño de elementos en una página web. Entender cómo se compone cada elemento de la caja es esencial para poder diseñar elementos atractivos y funcionales. Con estas propiedades básicas y sus combinaciones podemos obtener diseños complejos y elegantes.
 
 En resumen, `margin`, `border` y `padding` son propiedades de CSS que se utilizan para controlar el espacio, el borde y el relleno de un elemento HTML. Estas propiedades son fundamentales para el diseño y la apariencia de una página web, y su correcto uso puede mejorar la legibilidad y la accesibilidad del contenido.
+
+## Recursos adicionales
+
+A medida que avances en tu aprendizaje de HTML, te recomiendo visitar los siguientes recursos para obtener más información y ejemplos:
+
+- [Guia flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+- [Designing A Product Page Layout with Flexbox](https://css-tricks.com/designing-a-product-page-layout-with-flexbox/)

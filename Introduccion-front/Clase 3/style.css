@@ -1,0 +1,27 @@
+#selector-de-id {
+  background-color: red;
+}
+
+.selector-clase {
+  background-color: salmon;
+}
+
+section {
+  display: flex;
+  column-gap: 1rem;
+  background-color: aquamarine;
+}
+
+.card-producto {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.card-producto:hover {
+  background-color: #ccc;
+}
+
+article:nth-child(1) {
+  font-size: 3rem;
+  padding: 10px 20px 30px 40px;
+}
