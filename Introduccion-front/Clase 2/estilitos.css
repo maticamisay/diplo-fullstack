@@ -57,7 +57,15 @@ li {
   width: 30vw;
   width: 30%;
   width: 300px;
-  width: 15rem
+  width: 15rem;
+  text-decoration: none;
+  list-style: none;
+}
+
+/* quitar estilos a */
+a{
+  text-decoration: none;
+  color: #000;
 }
 
 /* width:50%;     ||  50% del ancho del padre */
