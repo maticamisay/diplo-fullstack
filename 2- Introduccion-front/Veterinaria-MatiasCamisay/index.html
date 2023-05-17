@@ -5,23 +5,70 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/styles/reset.css" />
+    <link rel="stylesheet" href="/styles/style.css" />
   </head>
   <body>
-    <header class="navbar">
-      <img
-        class="logo"
-        src="https://th.bing.com/th/id/OIP.YClS12iYtB_BfJUKnWDgKgHaIQ?pid=ImgDet&rs=1"
-        alt="logo"
-      />
-
-      <nav>
-        <ul class="links">
-          <li><a href="#">Inicio</a></li>
-          <li><a href="#">Productos</a></li>
-          <li><a href="#">Contacto</a></li>
-        </ul>
-      </nav>
-    </header>
+    <nav class="navbar">
+      <a href="/index.html" class="navbar__logo">Logo</a>
+      <ul class="navbar__menu">
+        <li class="navbar__item">
+          <a href="/index.html" class="navbar__link">Inicio</a>
+        </li>
+        <li class="navbar__item">
+          <a href="#" class="navbar__link">Registro</a>
+        </li>
+        <li class="navbar__item">
+          <a href="#" class="navbar__link">Iniciar sesión</a>
+        </li>
+        <li class="navbar__item">
+          <a href="/cart.html" class="navbar__link">Carrito</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="container">
+      <h1>Inicio</h1>
+      <div class="container">
+        <div class="card">
+          <img src="https://placehold.co/600x400" alt="Producto 1" />
+          <h3>Producto 1</h3>
+          <p>Descripción del Producto 1.</p>
+          <a href="/detalle.html">Ver detalle</a>
+        </div>
+        <div class="card">
+          <img src="https://placehold.co/600x400" alt="Producto 2" />
+          <h3>Producto 2</h3>
+          <p>Descripción del Producto 2.</p>
+          <a href="/detalle.html">Ver detalle</a>
+        </div>
+        <div class="card">
+          <img src="https://placehold.co/600x400" alt="Producto 3" />
+          <h3>Producto 3</h3>
+          <p>Descripción del Producto 3.</p>
+          <a href="/detalle.html">Ver detalle</a>
+        </div>
+        <div class="card">
+          <img src="https://placehold.co/600x400" alt="Producto 3" />
+          <h3>Producto 3</h3>
+          <p>Descripción del Producto 3.</p>
+          <a href="/detalle.html">Ver detalle</a>
+        </div>
+        <div class="card">
+          <img src="https://placehold.co/600x400" alt="Producto 3" />
+          <h3>Producto 3</h3>
+          <p>Descripción del Producto 3.</p>
+          <a href="/detalle.html">Ver detalle</a>
+        </div>
+        <div class="card">
+          <img src="https://placehold.co/600x400" alt="Producto 3" />
+          <h3>Producto 3</h3>
+          <p>Descripción del Producto 3.</p>
+          <a href="/detalle.html">Ver detalle</a>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <p>© 2023 - Todos los derechos reservados</p>
+    </footer>
   </body>
 </html>
