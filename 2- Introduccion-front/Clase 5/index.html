@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select,
+    input[type="submit"] {
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    @media (min-width: 600px) {
+      .form {
+        flex-direction: row;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      select,
+      input[type="submit"] {
+        flex: 1;
+        margin: 10px;
+      }
+    }
+  </style>
+  <body>
+    <form class="form" action="/ruta_del_servidor" method="POST">
+      <input type="text" name="nombre" placeholder="Nombre" />
+      <input type="email" name="email" placeholder="Correo" />
+      <select name="opcion">
+        <option value="opcion1">Opción 1</option>
+        <option value="opcion2">Opción 2</option>
+      </select>
+      <input type="submit" value="Enviar" />
+    </form>
+  </body>
+</html>
