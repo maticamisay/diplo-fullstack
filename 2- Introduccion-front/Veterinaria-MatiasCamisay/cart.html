@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="/styles/reset.css">
-    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="/styles/reset.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
+    <link rel="stylesheet" href="/styles/cart.css" />
   </head>
   <body>
     <nav class="navbar">
@@ -26,6 +27,50 @@
         </li>
       </ul>
     </nav>
-    <h1>Carrito</h1>
+    <main class="container">
+      <!-- card cart -->
+      <section class="cart__container">
+        <h1 class="title">Carrito</h1>
+        <!-- items -->
+        <div class="cart__products">
+          <!-- item carrito -->
+          <article class="cart__product">
+            <img
+              src="https://http2.mlstatic.com/D_NQ_NP_884287-MLA42898808507_072020-O.jpg"
+              alt="imagen producto"
+            />
+            <!-- product info -->
+            <div class="product__info">
+              <h3>Producto 1</h3>
+              <p>Stock: 2</p>
+            </div>
+            <!-- product price -->
+            <div>
+              <p>$ 100</p>
+            </div>
+          </article>
+          <!-- item carrito -->
+          <article class="cart__product">
+            <img
+              src="https://d3ugyf2ht6aenh.cloudfront.net/stores/306/051/products/bba84285-d8bd-4b76-9d02-7acf38c1d645-37d33038ff6c3223d216805344617868-640-0.webp"
+              alt="imagen producto"
+            />
+            <!-- product info -->
+            <div class="product__info">
+              <h3>Producto 1</h3>
+              <p>Stock: 7</p>
+            </div>
+            <!-- product price -->
+            <div>
+              <p>$ 100</p>
+            </div>
+          </article>
+        </div>
+        <!-- botones -->
+        <div>
+          <button type="button" class="btn">Finalizar compra</button>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
