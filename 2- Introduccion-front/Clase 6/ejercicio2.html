@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      /* Estilos generales */
+      body,
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+      /*
+      box-sizing: border-box;: Esta propiedad se aplica a todos los elementos (*) y establece el modelo de caja en border-box, lo que garantiza que el ancho y la altura incluyan el relleno y el borde, evitando problemas de dimensionamiento inesperados. 
+
+      padding: 0; y margin: 0;: Estas propiedades se aplican a todos los elementos (*) y establecen el relleno y el margen en cero, eliminando cualquier espacio adicional alrededor de los elementos.
+      */
+
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        background-color: #ff9696;
+        height: 500px;
+        align-items: center;
+        justify-content: center;
+      }
+      /* display: flex;: Esta propiedad se aplica al contenedor principal (.container) y establece su tipo de visualización como flex, lo que permite utilizar Flexbox para el diseño de los elementos secundarios. 
+
+      flex-wrap: wrap;: Esta propiedad se aplica al contenedor principal (.container) y permite que los elementos secundarios se envuelvan en múltiples líneas cuando no hay suficiente espacio horizontal.
+
+      gap: 10px;: Esta propiedad se aplica al contenedor principal (.container) y establece un espacio de 10 píxeles entre los elementos secundarios, creando un margen uniforme.
+      */
+
+      .item {
+        flex: 0 1 calc(33.33% - 20px);
+        background-color: #897f7f;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      /* 
+      flex: 0 1 calc(33.33% - 10px);: Esta propiedad se aplica a los elementos secundarios (.item) y establece un tamaño flexible. El valor 0 indica que el elemento no debe crecer, el valor 1 permite que el elemento se reduzca, y calc(33.33% - 10px) establece que cada elemento debe ocupar un tercio del ancho total del contenedor, menos 10 píxeles para el espacio del margen.
+      */
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item">Elemento 1</div>
+      <div class="item">Elemento 2</div>
+      <div class="item">Elemento 3</div>
+      <div class="item">Elemento 4</div>
+      <div class="item">Elemento 5</div>
+      <div class="item">Elemento 6</div>
+    </div>
+  </body>
+</html>
