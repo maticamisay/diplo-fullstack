@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 300px;
+      }
+
+      .item {
+        flex: 0 1 auto;
+        background-color: #e0e0e0;
+        padding: 20px;
+        margin: 10px;
+      }
+
+      .item:nth-child(1) {
+        flex-basis: 30%;
+      }
+
+      .item:nth-child(2) {
+        flex-basis: 50%;
+      }
+
+      .item:nth-child(3) {
+        flex-basis: 20%;
+      }
+    </style>
+  </head>
+  <body>
+<!-- En este ejemplo, utilizamos Flexbox para crear un diseño flexible donde los elementos secundarios (div.item) ocupan diferentes proporciones del ancho total del contenedor (div.container).
+      
+.container es el contenedor principal que utiliza Flexbox para alinear los elementos secundarios tanto horizontalmente (justify-content: center) como verticalmente (align-items: center). También se establece una altura de 300 píxeles para el contenedor.
+      
+.item se aplica a cada elemento secundario y tiene la propiedad flex configurada en 0 1 auto, lo que significa que los elementos no crecen, pueden reducirse y se basan en su tamaño contenido inicial.
+      
+Usando la pseudoclase nth-child, establecemos diferentes valores de flex-basis para cada elemento secundario:
+      
+.item:nth-child(1) tiene un flex-basis del 30%.
+.item:nth-child(2) tiene un flex-basis del 50%.
+.item:nth-child(3) tiene un flex-basis del 20%.
+Estos valores de flex-basis determinan la proporción del ancho del contenedor que cada elemento secundario ocupará.
+      
+Puedes probar este código en un archivo HTML y ver cómo los elementos se ajustan automáticamente para ocupar el ancho establecido. Experimenta con diferentes valores para flex-basis y observa cómo afecta el diseño. -->
+    <div class="container">
+      <div class="item">Elemento 1</div>
+      <div class="item">Elemento 2</div>
+      <div class="item">Elemento 3</div>
+    </div>
+  </body>
+</html>

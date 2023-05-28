@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .container {
+        display: flex;
+      }
+
+      .item {
+        padding: 20px;
+        background-color: #e0e0e0;
+        margin: 10px;
+      }
+
+      .item:nth-child(1) {
+        order: 3;
+      }
+
+      .item:nth-child(2) {
+        order: 1;
+      }
+
+      .item:nth-child(3) {
+        order: 5;
+      }
+
+      .item:nth-child(4) {
+        order: 2;
+      }
+
+      .item:nth-child(5) {
+        order: 4;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item">Elemento 1</div>
+      <div class="item">Elemento 2</div>
+      <div class="item">Elemento 3</div>
+      <div class="item">Elemento 4</div>
+      <div class="item">Elemento 5</div>
+    </div>
+  </body>
+</html>
