@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+      }
+      .container {
+        display: flex;
+        min-height: 100vh;
+      }
+
+      .sidebar {
+        flex: 0 0 200px;
+        background-color: #e0e0e0;
+      }
+
+      .content {
+        flex-grow: 1;
+        background-color: #f5f5f5;
+      }
+
+      .sidebar-content {
+        padding: 20px;
+      }
+
+      .content-text {
+        padding: 20px;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="sidebar">
+        <div class="sidebar-content">
+          <h3>Barra Lateral</h3>
+          <ul>
+            <li>Enlace 1</li>
+            <li>Enlace 2</li>
+            <li>Enlace 3</li>
+          </ul>
+        </div>
+      </div>
+      <div class="content">
+        <div class="content-text">
+          <h1>Contenido Principal</h1>
+          <p>Este es un ejemplo de contenido principal.</p>
+          <p>
+            Puedes agregar más elementos aquí, como texto, imágenes, videos,
+            etc.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
