@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 18px;
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        color: white;
+      }
+      .card {
+        background-color: #276fbf;
+        padding: 20px;
+        max-width: 400px;
+        width: 100%;
+        border-radius: 15px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+      }
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+      }
+      .form-group label {
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+      .form-group input[type="text"],
+      .form-group input[type="email"],
+      .form-group input[type="number"],
+      .form-group textarea {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        outline-color: #4c88ce;
+      }
+      .form-group textarea {
+        min-height: 100px;
+      }
+      .form-group button {
+        padding: 10px 20px;
+        background-color: #c0343d;
+        font-weight: bold;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .form-group button:hover {
+        background-color: #a02c35;
+      }
+    </style>
+  </head>
+  <body class="container">
+    <!-- card de formulario -->
+    <section class="card">
+      <form>
+        <!-- field nombre -->
+        <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input required id="nombre" name="nombre" type="text" />
+        </div>
+        <!-- field Correo -->
+        <div class="form-group">
+          <label for="correo">Correo</label>
+          <input id="correo" name="correo" type="email" required />
+        </div>
+        <!-- field Telefono -->
+        <div class="form-group">
+          <label for="tel">Telefono</label>
+          <input id="tel" name="tel" type="number" required />
+        </div>
+        <!-- field Mensaje -->
+        <div class="form-group">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje">Hola</textarea>
+        </div>
+        <div class="form-group">
+          <button type="submit">Enviar</button>
+        </div>
+      </form>
+    </section>
+  </body>
+</html>
