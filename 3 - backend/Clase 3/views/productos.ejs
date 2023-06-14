@@ -1,0 +1,14 @@
+<!-- productos -->
+<section>
+  <% productos.forEach(function(prod,index) { %>
+  <!-- producto -->
+  <article>
+    <h1>Producto <%= index+1 %></h1>
+    <ul>
+      <li>Nombre: <%= prod.nombre %></li>
+      <li>Precio: <%= prod.precio %></li>
+      <li>Descripcion: <%= prod.descripcion %></li>
+    </ul>
+  </article>
+  <% }) %>
+</section>
