@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Productos</title>
+  </head>
+  <body>
+    <h1>Productos</h1>
+    <p>Esta es la pagina de productos</p>
+    <!-- productos -->
+    <section>
+      <% productos.forEach(function(prod,index) { %>
+      <!-- producto -->
+      <article>
+        <h1>Producto <%= index+1 %></h1>
+        <ul>
+          <li>Nombre: <%= prod.nombre %></li>
+          <li>Precio: <%= prod.precio %></li>
+        </ul>
+      </article>
+      <% }) %>
+    </section>
+  </body>
+</html>
