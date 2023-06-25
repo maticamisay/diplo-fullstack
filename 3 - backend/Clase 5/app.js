@@ -11,8 +11,9 @@ app.use(express.json());
 app.set("view engine", "ejs");
 
 // Routes
-app.use("/", require("./routes/indexRoutes"));
-app.use("/productos", require("./routes/productosRoutes"));
+app.use("/", require("./routes/indexRoutes")); //rutas principales
+app.use("/admin", require("./routes/adminRoutes")); //rutas principales
+app.use("/api/productos", require("./routes/productosRoutes")); //rutas productos
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);

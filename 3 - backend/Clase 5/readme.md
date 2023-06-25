@@ -12,7 +12,8 @@ La estructura de archivos del proyecto será la siguiente:
 - 📁 middlewares
    - 📄 autenticacionMiddleware.js
 - 📁 routes
-   - 📄 index.js
+   - 📄 adminRoutes.js
+   - 📄 indexRoutes.js
    - 📄 productosRoutes.js
 - 📁 views
    - 📄 index.ejs
@@ -24,13 +25,31 @@ La estructura de archivos del proyecto será la siguiente:
 
 ## Archivos y su funcionalidad
 
+### Controllers
+
 - **`controllers/productosController.js`**: Este archivo contendrá la lógica para manejar las operaciones relacionadas con los productos, como crear, leer, editar y eliminar.
+
+- **`controllers/indexcontroller.js`**: Este archivo contendrá la lógica para renderizar cada vista ejs accesible al usuario.
+
+- **`controllers/adminController.js`**: Este archivo contendrá la lógica para renderizar cada vista ejs accesible al administrador.
+
+## Middlewares
 
 - **`middlewares/autenticacionMiddleware.js`**: En este archivo, implementaremos un middleware que se encargará de la autenticación de los usuarios.
 
-- **`routes/indexRoutes.js`**: Aquí definiremos las rutas principales de nuestra aplicación. Este archivo será responsable de renderizar las vistas principales utilizando el motor de plantillas EJS.
+- **`middlewares/validators/productValidator.js`**: En este archivo, implementaremos un middleware que se encargará de la validación con `express-validator` de los campos requeridos para la creación de un producto.
+
+- **`middlewares/validators/userValidator.js`**: En este archivo, implementaremos un middleware que se encargará de la validación con `express-validator` de los campos requeridos para la creación de un usuario.
+
+### Routes
+
+- **`routes/indexRoutes.js`**: Aquí definiremos las rutas principales de nuestra aplicación. Este archivo será responsable de renderizar las vistas principales utilizando el motor de plantillas EJS. A esta seccion se podrá acceder sin estar logeado.
+
+- **`routes/adminRoutes.js`**: Este archivo contendrá las rutas relacionadas con las sección de administrador, a la que solo se podrá acceder si previamente han iniciado sesión.
 
 - **`routes/productosRoutes.js`**: Este archivo contendrá las rutas relacionadas con las operaciones de los productos, como crear, leer, editar y eliminar. Utilizaremos el controlador de productos (`productosController.js`) para manejar la lógica asociada a estas operaciones.
+
+### Extras
 
 - **`views/index.ejs`**: Esta será la vista principal de nuestra aplicación. Utilizaremos el motor de plantillas EJS para renderizar esta vista y mostrar los datos relevantes.
 

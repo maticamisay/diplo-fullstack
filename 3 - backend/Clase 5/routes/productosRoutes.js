@@ -3,7 +3,7 @@ const {
   renderProductos,
   agregarProducto,
 } = require("../controllers/productsControllers");
-const validateProduct = require("../validators/productValidator");
+const validateProduct = require("../middleware/validators/productValidator");
 const router = express.Router();
 
 router.get("/", renderProductos);
