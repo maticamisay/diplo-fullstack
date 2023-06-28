@@ -1,8 +1,12 @@
 const fs = require("fs");
 
 const renderProductos = (req, res) => {
-  const productos = JSON.parse(fs.readFileSync("./productos.json", "utf-8"));
-  res.render("productos", { productos });
+  try {
+    const productos = JSON.parse(fs.readFileSync("./productos.json", "utf-8"));
+    res.render("productos", { productos });
+  } catch (error) {
+    next(error)
+  }
 };
 
 // const renderUnProducto = ...

@@ -6,9 +6,11 @@ const {
 const validateProduct = require("../middleware/validators/productValidator");
 const router = express.Router();
 
-router.get("/", renderProductos);
-// router.get("/:id",renderUnProducto)
-router.post("/", validateProduct, agregarProducto);
-// router.put("/:id",modificarProducto)
+router.get("/", renderProductos); //obtener todos los productos
+// router.get("/:id",renderUnProducto) //obtener un producto
+router.post("/", validateProduct, agregarProducto); //crear un producto
+// router.put("/:id",modificarProducto) //modificar un producto
 
 module.exports = router;
+
+// "https://listado.mercadolibre.com.ar/disco#D[A:disco]?searchVariation=disco&sort=price_asc"
