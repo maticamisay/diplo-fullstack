@@ -1,0 +1,17 @@
+<h1>Iniciar sesion</h1>
+
+<% if(errors) { %>
+<ul>
+  <% errors.forEach(error => {%>
+  <li><%= error.msg %></li>
+  <% }); %>
+</ul>
+<% } %>
+
+<form action="/registro" method="POST">
+  <label for="email">Email</label>
+  <input type="text" id="email" name="email" placeholder="Email" />
+  <label for="password">Password</label>
+  <input type="password" name="password" placeholder="Password" />
+  <button type="submit">Enviar</button>
+</form>
