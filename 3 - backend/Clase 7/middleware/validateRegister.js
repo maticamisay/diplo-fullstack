@@ -4,8 +4,10 @@ const validateRegister = [
   body("email")
     .notEmpty()
     .withMessage("Debes completar el campo email")
+    .bail()
     .isEmail()
     .withMessage("Debes ingresar un email válido"),
+  body("password").notEmpty().withMessage("Debes ingresar una password valida"),
   // .isNumber()
   // .withMessage("Debes ingresar un numero válido"),
   // .isBoolean()
