@@ -52,9 +52,44 @@ Configuramos el comando de desarrollo en el package.json
 2. Agregar el middleware a la ruta de register
 3. Renderizar los errores en la vista de register si los hay, sino redireccionar a la vista de perfil
 
+## Archivo USUARIOS.JSON
+
+Debe ser un array de objetos con la siguiente estructura:
+
+```
+[
+    {
+        "email": "example@gmail.com",
+        "password": "$2b$10$UEhs00CicTlcIc3K3Zjf4uKqyvw4F/iSrbzfFntfIk/W5qDGPu.2O"
+    },
+     {
+        "email": "example-two@gmail.com",
+        "password": "$2b$10$UEhs00CicTlcIkg83Zjf4uKqyvw4F/iSrbzfFntfIk/W5qDGPu.2O"
+    }
+]
+```
+
+
 ## Parte 5 - REGISTER: Creación de la lógica de register
 
 1. Creación de la lógica de register, agregar bcrypt para encriptar la contraseña
-2. Guardar en un json la información del usuario logueado
-3. Agregar express-session y cookie-parser para manejar las cookies y sessions
-4. Crear una session con la información del usuario logueado
+2. Leer el archivo json de usuarios
+3. Guardar en el json el nuevo usuario
+4. Redireccionar a la vista de perfil
+
+## Parte 6 - LOGIN: Creación de la lógica de login
+
+1. Creación de la lógica de login, agregar bcrypt para comparar la contraseña
+2. Leer el json para obtener la información del usuario que intenta loguearse
+3. Iterar sobre el array de usuarios para encontrar el usuario que intenta loguearse
+4. Si el usuario existe, comparar la contraseña
+5. Si la contraseña es correcta, crear una session con la información del usuario logueado
+6. Si la contraseña es incorrecta, renderizar la vista de login con el error
+7. Si el usuario no existe, renderizar la vista de login con el error
+8. Si el usuario existe y la contraseña es correcta, redireccionar a la vista de perfil
+
+
+## Parte 7 - Añadir express-session y cookie-parser a LOGIN y REGISTER
+
+1. Agregar express-session y cookie-parser para manejar las cookies y sessions
+2. Crear una session con la información del usuario logueado

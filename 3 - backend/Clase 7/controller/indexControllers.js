@@ -1,5 +1,6 @@
 const fs = require("fs");
 const bcrypt = require("bcrypt");
+const { saveUsuarios, readUsuarios } = require("../services/usuariosServices");
 
 const renderIndex = (req, res) => {
   res.render("index");
@@ -29,11 +30,11 @@ const registrarNuevo = (req, res) => {
       email,
       password: hashedPassword, // Guardar la contraseña hasheada en lugar de la original
     };
-    fs.writeFileSync(
-      "usuarios.json",
-      JSON.stringify(nuevoUsuario, null, 2),
-      "utf-8"
-    );
+
+    const usuarios = readUsuarios();
+    usuarios.push(nuevoUsuario);
+    saveUsuarios(usuarios);
+
     res.send("Nuevo usuario registrado");
   });
 };
