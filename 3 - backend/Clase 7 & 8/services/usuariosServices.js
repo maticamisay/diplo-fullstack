@@ -1,11 +1,8 @@
 const fs = require("fs");
 
 function saveUsuarios(usuarios) {
-  const result = fs.writeFileSync(
-    "usuarios.json",
-    JSON.stringify(usuarios, null, 2),
-    "utf-8"
-  );
+  const stringifiedUsers = JSON.stringify(usuarios, null, 2);
+  const result = fs.writeFileSync("usuarios.json", stringifiedUsers, "utf-8");
   return result;
 }
 

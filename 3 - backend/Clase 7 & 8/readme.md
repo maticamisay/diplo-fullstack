@@ -12,7 +12,7 @@ Instalamos los paquetes necesarios para el proyecto
 
 ```
 npm init -y
-npm install express express-session cookie-parser ejs express-validator
+npm install express express-session cookie-parser ejs express-validator bcrypt
 npm install nodemon -D
 ```
 
@@ -69,7 +69,6 @@ Debe ser un array de objetos con la siguiente estructura:
 ]
 ```
 
-
 ## Parte 5 - REGISTER: Creación de la lógica de register
 
 1. Creación de la lógica de register, agregar bcrypt para encriptar la contraseña
@@ -88,8 +87,22 @@ Debe ser un array de objetos con la siguiente estructura:
 7. Si el usuario no existe, renderizar la vista de login con el error
 8. Si el usuario existe y la contraseña es correcta, redireccionar a la vista de perfil
 
+Ejemplo para filtrar un array por email:
+
+```js
+const usuarios = [
+  { id: 1, nombre: "Matias", email: "mati@gmail" }, //index 0
+  { id: 2, nombre: "Andres" }, //index 1
+  { id: 3, nombre: "Marcos" ,email: "mati"}, //index 2
+];
+
+const findedUsuario = usuarios.filter((user, index) => user.email === "mati");
+
+console.log(findedUsuario); // [ { id: 3, nombre: 'Marcos', email: 'mati' } ]
+```
 
 ## Parte 7 - Añadir express-session y cookie-parser a LOGIN y REGISTER
 
 1. Agregar express-session y cookie-parser para manejar las cookies y sessions
 2. Crear una session con la información del usuario logueado
+````
