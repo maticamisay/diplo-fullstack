@@ -1,5 +1,14 @@
 # Introducción a Express.js y Nodemon
 
+## Tabla de Contenidos
+
+1. [Instalación de Express y Nodemon](#instalación-de-express-y-nodemon)
+2. [Configuración básica del servidor](#configuración-básica-del-servidor)
+3. [Manejo de rutas](#manejo-de-rutas)
+4. [Iniciando el servidor con Nodemon](#iniciando-el-servidor-con-nodemon)
+5. [Conclusión](#conclusión)
+6. [Lecturas adicionales](#lecturas-adicionales)
+
 Express.js es un framework de desarrollo web rápido y minimalista para Node.js, mientras que Nodemon es una herramienta que reinicia automáticamente el servidor Node.js cuando se detectan cambios en los archivos. En este archivo, exploraremos los conceptos básicos de Express y cómo configurar Nodemon para agilizar el desarrollo.
 
 ## Instalación de Express y Nodemon
@@ -10,7 +19,7 @@ Antes de comenzar, asegúrate de tener instalado Node.js en tu sistema. Luego, p
  mkdir mi-proyecto-express
  cd mi-proyecto-express
  npm init -y
- npm install express 
+ npm install express
  npm install nodemon --save-dev
 ```
 
@@ -60,3 +69,10 @@ En este archivo, hemos aprendido los conceptos básicos de Express.js y cómo co
 Express y Nodemon son herramientas poderosas que facilitan el desarrollo de aplicaciones web en Node.js. Continúa explorando y aprendiendo más sobre Express y sus capacidades adicionales para aprovechar al máximo este framework.
 
 ¡Feliz desarrollo con Express y Nodemon!
+
+## Lecturas Adicionales
+
+Para más práctica e información adicional sobre Express.js, consulta los siguientes documentos:
+
+- [Ejercicios de Express](./ejercicios.md)
+- [Express.js - req.params](./req.params.md)
