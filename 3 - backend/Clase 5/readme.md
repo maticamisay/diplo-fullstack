@@ -1,66 +1,87 @@
-# Proyecto de Express con estructura de archivos modularizada
+# Middlewares, Función `next()` y Validación en Express.js
 
-En este proyecto, crearemos una aplicación web utilizando el framework Express. La estructura de archivos estará dividida en rutas (routes), controladores (controllers) y middlewares. También utilizaremos un archivo JSON y el módulo 'fs' para simular una "base de datos". Además, utilizaremos el motor de plantillas EJS para renderizar nuestras vistas.
+## Tabla de Contenidos
 
-## Estructura de archivos
+1. [Introducción](#introducción)
+2. [Función `next()`](#función-next)
+3. [Express-validator](#express-validator)
+4. [Resumen](#resumen)
+5. [Recursos Adicionales](#recursos-adicionales)
 
-La estructura de archivos del proyecto será la siguiente:
+## Introducción
+
+Un middleware en Express.js es una función que tiene acceso al objeto de solicitud (request), al objeto de respuesta (response) y a la función de middleware siguiente en el ciclo de solicitud/respuesta de la aplicación, denotada comúnmente como `next`.
+
+Los middleware pueden realizar las siguientes tareas:
+
+- Ejecutar cualquier código.
+- Hacer cambios en la solicitud y los objetos de respuesta.
+- Terminar el ciclo de solicitud/respuesta.
+- Llamar al siguiente middleware en la pila.
+
+Un middleware se define en una aplicación Express utilizando el método `use()` del objeto de aplicación, o como parte de la definición de una ruta.
+
+## Función `next()`
+
+La función `next()` es una función que se pasa como argumento a cada middleware y que, cuando se llama, pasa el control al siguiente middleware en la pila. Si el middleware actual no termina el ciclo de solicitud/respuesta, debe llamar a `next()` para pasar el control al siguiente middleware. De lo contrario, la solicitud quedará colgada.
+
+Un ejemplo de middleware en Express.js sería:
+
+```javascript
+app.use((req, res, next) => {
+  console.log("Time:", Date.now());
+  next(); // Pasando el control al siguiente middleware
+});
+```
+
+Este middleware se ejecuta en cada solicitud y registra la fecha y hora actual en la consola. Luego, llama a `next()` para pasar el control al siguiente middleware en la pila.
+
+## Express-validator
+
+Express-validator es un conjunto de middlewares que se utilizan para validar y sanear datos en una aplicación Express.js.
+
+Para usar express-validator, primero debes instalarlo con npm:
 
 ```
-- 📁 controllers
-   - 📄 productosController.js
-- 📁 middlewares
-   - 📄 autenticacionMiddleware.js
-- 📁 routes
-   - 📄 adminRoutes.js
-   - 📄 indexRoutes.js
-   - 📄 productosRoutes.js
-- 📁 views
-   - 📄 index.ejs
-   - 📄 producto.ejs
-- 📄 productos.json
-- 📄 app.js
-- 📄 package.json
+npm install --save express-validator
 ```
 
-## Archivos y su funcionalidad
+Luego, puedes importarlo en tu archivo y usarlo para validar los datos de la solicitud:
 
-### Controllers
+```javascript
+const { body, validationResult } = require("express-validator");
 
-- **`controllers/productosController.js`**: Este archivo contendrá la lógica para manejar las operaciones relacionadas con los productos, como crear, leer, editar y eliminar.
+app.post(
+  "/user",
+  // Usando express-validator para validar el campo "email"
+  body("email").isEmail(),
 
-- **`controllers/indexcontroller.js`**: Este archivo contendrá la lógica para renderizar cada vista ejs accesible al usuario.
+  // Usando express-validator para validar el campo "password"
+  body("password").isLength({ min: 5 }),
 
-- **`controllers/adminController.js`**: Este archivo contendrá la lógica para renderizar cada vista ejs accesible al administrador.
+  (req, res, next) => {
+    // Obteniendo los resultados de la validación
+    const errors = validationResult(req);
 
-## Middlewares
+    if (!errors.isEmpty()) {
+      // Si hay errores de validación, envía una respuesta con los errores
+      return res.status(400).json({ errors: errors.array() });
+    }
 
-- **`middlewares/autenticacionMiddleware.js`**: En este archivo, implementaremos un middleware que se encargará de la autenticación de los usuarios.
+    // Si no hay errores de validación, pasa el control al siguiente middleware
+    next();
+  }
+);
+```
 
-- **`middlewares/validators/productValidator.js`**: En este archivo, implementaremos un middleware que se encargará de la validación con `express-validator` de los campos requeridos para la creación de un producto.
+En este caso, el middleware de express-validator se utiliza para validar que el campo 'email' en el cuerpo de la solicitud es un correo electrónico válido y que el campo 'password' tiene al menos 5 caracteres de longitud.
 
-- **`middlewares/validators/userValidator.js`**: En este archivo, implementaremos un middleware que se encargará de la validación con `express-validator` de los campos requeridos para la creación de un usuario.
+## Resumen
 
-### Routes
+En este README, hemos aprendido sobre los middlewares en Express.js, la función `next()`, y cómo se pueden utilizar para validar y sanear datos con express-validator. Los middlewares y la función `next()` son una parte esencial de Express.js que te permiten añadir funcionalidades personalizadas y reutilizables a tus aplicaciones.
 
-- **`routes/indexRoutes.js`**: Aquí definiremos las rutas principales de nuestra aplicación. Este archivo será responsable de renderizar las vistas principales utilizando el motor de plantillas EJS. A esta seccion se podrá acceder sin estar logeado.
+## Recursos Adicionales
 
-- **`routes/adminRoutes.js`**: Este archivo contendrá las rutas relacionadas con las sección de administrador, a la que solo se podrá acceder si previamente han iniciado sesión.
+Link hacia las instrucciones de la aplicacion de productos:
 
-- **`routes/productosRoutes.js`**: Este archivo contendrá las rutas relacionadas con las operaciones de los productos, como crear, leer, editar y eliminar. Utilizaremos el controlador de productos (`productosController.js`) para manejar la lógica asociada a estas operaciones.
-
-### Extras
-
-- **`views/index.ejs`**: Esta será la vista principal de nuestra aplicación. Utilizaremos el motor de plantillas EJS para renderizar esta vista y mostrar los datos relevantes.
-
-- **`views/producto.ejs`**: Esta vista mostrará los detalles de un producto específico.
-
-- **`productos.json`**: Este archivo JSON actuará como nuestra "base de datos" simulada. Contendrá los datos de los productos.
-
-- **`app.js`**: Este archivo será el punto de entrada de nuestra aplicación Express. Aquí configuraremos las rutas, los middlewares y otros aspectos relacionados con la configuración de la aplicación.
-
-- **`package.json`**: Este archivo contendrá las dependencias y la configuración de nuestro proyecto.
-
-## Conclusion
-
-En este proyecto de Express, hemos utilizado una estructura de archivos modularizada para facilitar el desarrollo y el mantenimiento de nuestra aplicación web. Hemos dividido las funcionalidades en controladores, middlewares y rutas, y hemos utilizado el motor de plantillas EJS para renderizar nuestras vistas. Además, hemos simulado una "base de datos" utilizando un archivo JSON. Esta estructura modularizada nos permite tener un código más organizado y escalable, y facilita la colaboración en equipos de desarrollo.
+1. [Instrucciones aplicacion productos](./instrucciones.md)

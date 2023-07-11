@@ -93,7 +93,7 @@ Ejemplo para filtrar un array por email:
 const usuarios = [
   { id: 1, nombre: "Matias", email: "mati@gmail" }, //index 0
   { id: 2, nombre: "Andres" }, //index 1
-  { id: 3, nombre: "Marcos" ,email: "mati"}, //index 2
+  { id: 3, nombre: "Marcos", email: "mati" }, //index 2
 ];
 
 const findedUsuario = usuarios.filter((user, index) => user.email === "mati");
@@ -105,4 +105,3 @@ console.log(findedUsuario); // [ { id: 3, nombre: 'Marcos', email: 'mati' } ]
 
 1. Agregar express-session y cookie-parser para manejar las cookies y sessions
 2. Crear una session con la información del usuario logueado
-````

@@ -1,123 +1,114 @@
-  # Express.js y EJS: Plantillas dinámicas para aplicaciones web
+# Ruteo en Express.js
 
-  Express.js es un framework web popular y flexible para Node.js, mientras que EJS (Embedded JavaScript) es un motor de plantillas que se integra con Express para generar contenido dinámico en las aplicaciones web. En este archivo, exploraremos en detalle cómo utilizar EJS con Express, incluyendo ejemplos, estructura de archivos, formas de uso y más.
+## Tabla de Contenidos
 
-  ## ¿Qué es EJS?
+1. [Introducción](#introducción)
+2. [Creando Rutas](#creando-rutas)
+3. [Parámetros de Ruta](#parámetros-de-ruta-route-parameters)
+4. [Parámetros de Consulta](#parámetros-de-consulta-query-parameters)
+5. [Rutas Avanzadas con Router](#rutas-avanzadas-con-router)
+6. [Resumen](#resumen)
+7. [Lectura Adicional](#lectura-adicional)
 
-  EJS es un motor de plantillas que permite combinar HTML y JavaScript para generar contenido dinámico en el lado del servidor. A diferencia de HTML estático, las plantillas EJS pueden incluir lógica y variables, lo que facilita la generación de páginas web personalizadas basadas en datos dinámicos.
+## Introducción
 
-  ## Instalación de EJS
+El ruteo (o routing en inglés) se refiere a cómo una aplicación responde a una solicitud de cliente en un endpoint específico, que es un URI (o ruta) y un método de solicitud HTTP específico (GET, POST, etc.).
 
-  Para comenzar a utilizar EJS en tu proyecto Express, debes instalarlo como una dependencia. Ejecuta el siguiente comando en tu terminal:
+En Express.js, las rutas se definen mediante el uso de métodos de un objeto Express, que corresponden a los métodos HTTP.
 
-  ```bash
-  npm install ejs
-  ```
+## Creando Rutas
 
-  ## Configuración de EJS en Express
+Un ejemplo básico de ruteo en Express.js es:
 
-  Para utilizar EJS como motor de plantillas en tu aplicación Express, debes configurarlo en el archivo principal de tu aplicación (por ejemplo, `app.js` o `index.js`). Asegúrate de requerir EJS y configurarlo como el motor de plantillas predeterminado de Express:
+```javascript
+const express = require("express");
+const app = express();
+const port = 3000;
 
-  ```javascript
-  const express = require("express");
-  const app = express();
-  const ejs = require("ejs");
+app.get("/", (req, res) => {
+  res.send("Hola mundo!");
+});
 
-  // Configuración del motor de plantillas EJS
-  app.set("view engine", "ejs");
-  ```
+app.listen(port, () => {
+  console.log(`Aplicación escuchando en el puerto ${port}`);
+});
+```
 
-  En el código anterior, hemos requerido el módulo EJS y configurado Express para usarlo como motor de plantillas predeterminado.
+En este caso, se define una ruta para el endpoint '/', que maneja las solicitudes GET.
 
-  ## Estructura de archivos y directorios
+Podemos agregar rutas para manejar otros métodos HTTP y rutas:
 
-  La estructura de archivos y directorios para trabajar con EJS en Express puede variar según tus necesidades y preferencias. Sin embargo, aquí hay una estructura básica comúnmente utilizada:
+```javascript
+app.post("/", (req, res) => {
+  res.send("POST request to the homepage");
+});
 
-  ```
-  - proyecto-express
-    - node_modules
-    - public
-      - css
-      - js
-      - images
-    - views
-      - partials
-      - pages
-    - app.js
-    - package.json
-  ```
+app.put("/user", (req, res) => {
+  res.send("PUT request to /user");
+});
 
-  En esta estructura, el directorio `public` almacena archivos estáticos como hojas de estilo CSS, archivos JavaScript e imágenes. El directorio `views` contiene las plantillas EJS, que se dividen en subdirectorios como `partials` (para componentes reutilizables) y `pages` (para las páginas específicas).
+app.delete("/user", (req, res) => {
+  res.send("DELETE request to /user");
+});
+```
 
-  ## Uso de EJS en Express
+## Parámetros de Ruta (Route Parameters)
 
-  Una vez que has configurado EJS y la estructura de archivos, puedes comenzar a utilizarlo para generar contenido dinámico en tus vistas.
+Los parámetros de ruta son segmentos de la URL que se utilizan para capturar los valores especificados en la ubicación actual. Se definen con la sintaxis `:nombreParametro` en la URL de la ruta.
 
-  ### Renderización de vistas
+```javascript
+app.get("/users/:userId", (req, res) => {
+  let userId = req.params.userId;
+  res.send(`Usuario con ID: ${userId}`);
+});
+```
 
-  Para renderizar una vista EJS y enviarla como respuesta al cliente, utiliza el método `render` en tu ruta correspondiente. Pasa el nombre de la plantilla EJS (sin la extensión `.ejs`) y un objeto de datos como argumentos.
+Aquí, `:userId` es un parámetro de ruta en la ruta `/users/:userId`.
 
-  ```javascript
-  app.get("/", (req, res) => {
-    const data = { name: "John Doe", age: 30 };
-    res.render("index", { data });
-  });
-  ```
+## Parámetros de Consulta (Query Parameters)
 
-  En el ejemplo anterior, estamos renderizando la vista `index.ejs` y pasando un objeto `data` como contexto.
+Además de los parámetros de ruta, también puedes manejar parámetros de consulta en tus rutas. Los parámetros de consulta son la parte de una URL que sigue el signo `?` y que se utiliza para proporcionar datos que no forman parte de la ruta en sí.
 
-  ### Uso de variables en plantillas EJS
+```javascript
+app.get("/search", (req, res) => {
+  let query = req.query.q;
+  res.send(`Buscar resultados para: ${query}`);
+});
+```
 
-  Dentro de las plantillas EJS, puedes acceder a los datos pasados ​​y utilizar variables para generar contenido dinámico. Utiliza la sintaxis `<
+En este caso, si alguien visita `/search?q=Node`, la aplicación responderá con 'Buscar resultados para: Node'.
 
-  %= variable %>` para imprimir el valor de una variable.
+## Rutas Avanzadas con Router
 
-  ```html
-  <h1>Bienvenido <%= data.name %>!</h1>
-  <p>Tu edad es <%= data.age %> años.</p>
-  ```
+Express.js también ofrece una funcionalidad de Router, que te permite crear manejadores de rutas modulares y montables en una aplicación Express. Esto es particularmente útil para separar rutas en diferentes archivos basados en su funcionalidad.
 
-  En este ejemplo, estamos imprimiendo los valores de las variables `name` y `age` en la vista EJS.
+```javascript
+const express = require("express");
+const router = express.Router();
 
-  ### Lógica condicional y bucles en plantillas EJS
+// Respond to GET request on the root route (`/`), the application’s home page
+router.get("/", (req, res) => {
+  res.send("Home page");
+});
 
-  EJS también admite lógica condicional y bucles para controlar el flujo y la generación de contenido dinámico en las vistas. Puedes utilizar las estructuras de control `if`, `else if`, `else` y los bucles `for` o `forEach`.
+// Respond to a GET request to the `/about` route
+router.get("/about", (req, res) => {
+  res.send("About page");
+});
 
-  ```html
-  <% if (data.age >= 18) { %>
-  <p>Eres mayor de edad.</p>
-  <% } else { %>
-  <p>Eres menor de edad.</p>
-  <% } %>
+module.exports = router;
+```
 
-  <ul>
-    <% for (let i = 0; i < data.items.length; i++) { %>
-    <li><%= data.items[i] %></li>
-    <% } %>
-  </ul>
-  ```
+Este router puede ser importado y usado en el archivo principal de tu aplicación.
 
-  En el ejemplo anterior, estamos utilizando una declaración `if` para mostrar diferentes mensajes según la edad y un bucle `for` para generar una lista de elementos.
+## Resumen
 
-  ### Partials en EJS
+En este README hemos aprendido sobre cómo Express.js maneja el ruteo, incluyendo rutas básicas, parámetros de ruta, parámetros de consulta y el uso de la funcionalidad de Router. En los siguientes READMEs, seguiremos explorando más funcionalidades de Express.js.
 
-  Los partials en EJS son componentes reutilizables que se pueden incluir en varias vistas. Puedes crear archivos parciales en el directorio `partials` y luego incluirlos en tus vistas utilizando la etiqueta `<%- include('partials/nombre-partial') %>`. Por ejemplo:
+## Lectura Adicional
 
-  ```html
-  <!-- partial.ejs -->
-  <p>Este es un partial.</p>
+Para profundizar en otros temas de Express.js, puedes consultar los siguientes READMEs:
 
-  <!-- index.ejs -->
-  <h1>Página principal</h1>
-  <%- include('partials/partial') %>
-  ```
-
-  En este ejemplo, hemos creado un partial llamado `partial.ejs` y lo hemos incluido en la vista `index.ejs`.
-
-  ## Conclusion
-
-  En este archivo, hemos explorado el uso de EJS en Express para generar contenido dinámico en aplicaciones web. Hemos aprendido cómo configurar EJS en Express, estructurar archivos y directorios, y utilizar EJS para renderizar vistas, utilizar variables, lógica condicional, bucles y partials.
-
-  EJS es una poderosa herramienta para generar contenido dinámico en el lado del servidor y personalizar las vistas en función de los datos. Continúa explorando y experimentando con EJS para aprovechar al máximo su potencial en tus aplicaciones web con Express.
-
-  ¡Disfruta de la generación de contenido dinámico con EJS y Express!
+1. [Express.js y EJS: Plantillas dinámicas para aplicaciones web](./intro-ejs.md)
+2. [Ejercicios EJS - Parte 1](./ejercicios.md)
+3. [Explicacion ejercicio 2](./ejercicio2.md)
