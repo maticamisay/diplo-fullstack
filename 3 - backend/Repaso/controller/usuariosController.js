@@ -27,7 +27,7 @@ const crearUsuario = (req, res) => {
   }
   usuariosDB.push(newUsuario);
   writeUsuarios(usuariosDB);
-  res.json({ newUsuario });
+  res.json({ message: "creado con exito", usuario: newUsuario });
 };
 
 const actualizarUsuario = (req, res) => {
