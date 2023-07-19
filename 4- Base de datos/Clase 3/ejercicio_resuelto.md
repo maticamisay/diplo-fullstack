@@ -1,0 +1,10 @@
+```sql
+#CREAR BASE DE DATOS
+CREATE DATABASE biblioteca;
+
+#SELECCIONAR BASE DE DATOS
+USE biblioteca;
+
+#CREAMOS UNA TABLA
+CREATE TABLE libros();
+```
