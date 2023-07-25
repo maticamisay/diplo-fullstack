@@ -54,5 +54,6 @@ ADD FOREIGN KEY (producto_id) REFERENCES Productos(id);
 
 UPDATE productos SET categoria_id = 1 WHERE id IN (1);
 UPDATE productos SET categoria_id = 2 WHERE id IN (2,3);
+
 SELECT * FROM productos INNER JOIN categoria ON productos.categoria_id=categoria.id;
 
