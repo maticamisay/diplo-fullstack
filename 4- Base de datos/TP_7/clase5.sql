@@ -56,3 +56,4 @@ FROM
     productos
         JOIN
     categoria ON productos.categoria_id = categoria.id;
+
