@@ -1,3 +1,10 @@
+/**
+ * This file contains the implementation of a RESTful API using Express.js to manage a database of products.
+ * It defines routes for getting all products, getting a single product by ID, creating a new product, updating an existing product, and deleting a product.
+ * It uses the Product model defined in the ./models/productos.js file to interact with the database.
+ * The API accepts and returns JSON data, and uses middleware to process incoming JSON data.
+ * The server listens on port 3000.
+ */
 const express = require("express");
 const app = express();
 const Product = require("./models/productos");
