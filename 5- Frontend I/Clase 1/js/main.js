@@ -10,3 +10,8 @@ const allDataGroupes = document.querySelectorAll("[data-grupo]");
 allDataGroupes.forEach(function (item) {
   item.innerHTML = "Hola Mundo foreach";
 });
+
+const button = document.querySelector("button");
+button.addEventListener("click", function () {
+  alert("Agregaste un producto al carrito");
+});
