@@ -28,6 +28,7 @@ parent2.addEventListener("click", (event) => {
   console.log("click parent-2");
 });
 
-child2.addEventListener("click", () => {
+child2.addEventListener("click", (event) => {
+  event.stopPropagation();
   console.log("click child-2");
 });
