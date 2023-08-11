@@ -1,4 +1,7 @@
 <html>
+  <head>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
   <form id="form">
     <input type="text" id="name" name="name" placeholder="Name" />
     <input
@@ -7,13 +10,23 @@
       name="password"
       placeholder="Password"
     />
-    <select id="selectOpciones" name="selectOpciones">
-      <option value="">Seleccione una opció</option>
-      <option value="option-1">Opcion 1</option>
-      <option value="option-2">Opcion 2</option>
+    <select id="classUser" name="classUser">
+      <option value="">Seleccione una clase</option>
+      <option value="option-1">Primer año</option>
+      <option value="option-2">Segundo año</option>
     </select>
     <button type="submit">Submit</button>
   </form>
-  <section id="usuarios"></section>
+  <section id="usuarios">
+    <!-- <div id="usuarios-list">
+      <li>Usuario: Matias. Clase: primer año.</li>
+      <button>Editar</button>
+    </div>
+    <div id="usuarios-list">
+      <li>Usuario: Matias. Clase: primer año.</li>
+      <button>Editar</button>
+    </div> -->
+  </section>
+  <!-- config script para usar import export -->
   <script src="main.js"></script>
 </html>
