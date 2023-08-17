@@ -10,13 +10,26 @@ async function renderProducts() {
     const div = document.createElement("div");
     div.classList.add("card");
     div.innerHTML = `
-      <img src="${product.image}" alt="${product.title}" />
       <h3>${product.title}</h3>
-      <p>${product.description}</p>
-      <p>${product.price}</p>
+      <p>$ ${product.price}</p>
     `;
+    const button = document.createElement("button");
+    button.textContent = "Comprar";
+    button.setAttribute("id", `productID-${product.id}`);
+    button.addEventListener("click", saveProduct);
+    div.appendChild(button);
     container.appendChild(div);
   });
 }
 
-getProducts();
+const saveProduct = (event) => {
+  const id = event.target.id.split("-")[1];
+  const storage = JSON.parse(localStorage.getItem("products")) || [];
+  const index = storage.find((product) => product === id);
+  if (!index) {
+    storage.push(id);
+  }
+  localStorage.setItem("products", JSON.stringify(storage));
+};
+
+renderProducts();
