@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <nav class="navbar">
@@ -14,81 +15,3 @@
   </body>
   <script src="ejercicio.js"></script>
 </html>
-<style>
-  body,
-  * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-      sans-serif;
-  }
-  :root {
-    --color-1: #3a606e;
-    --color-2: #607b7d;
-    --color-3: #828e82;
-    --color-4: #aaae8e;
-    --color-5: #e0e0e0;
-  }
-  /* Navbar */
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-  }
-
-  /* Navbar links */
-  .navbar a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 10px;
-  }
-
-  /* Navbar link hover */
-  .navbar a:hover {
-    text-decoration: underline;
-  }
-  #productos {
-    margin-top: 2rem;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: stretch; /* Añadido */
-    justify-content: center;
-    gap: 10px;
-  }
-  .card {
-    flex: 0 1 calc(30% - 10px);
-    border: 1px solid var(--color-3);
-    padding: 8px 4px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: box-shadow 0.3s ease-in-out;
-  }
-  .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  }
-  .card button {
-    background-color: var(--color-4);
-    border: none;
-    color: white;
-    padding: 8px 16px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-  .card h2 {
-    color: var(--color-1);
-  }
-  .card p {
-    color: var(--color-2);
-  }
-</style>
