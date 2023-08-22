@@ -1,7 +1,5 @@
-async function fetchApi() {
-  const result = await fetch("https://fakestoreapi.com/products");
-  return await result.json();
-}
+import { fetchApi } from "./utils/fetch.js";
+import { getLocalStorage, saveLocalStorage } from "./utils/localStorage.js";
 
 async function renderProducts() {
   const products = await fetchApi();
@@ -24,12 +22,12 @@ async function renderProducts() {
 
 const saveProduct = (event) => {
   const id = event.target.id.split("-")[1];
-  const storage = JSON.parse(localStorage.getItem("products")) || [];
+  const storage = getLocalStorage("products") || [];
   const index = storage.find((product) => product === id);
   if (!index) {
     storage.push(id);
   }
-  localStorage.setItem("products", JSON.stringify(storage));
+  saveLocalStorage("products", storage);
 };
 
 renderProducts();

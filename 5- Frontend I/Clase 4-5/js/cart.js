@@ -1,8 +1,4 @@
-// HACER UN FETCH DE LA API DE PRODUCTOS
-async function fetchApi() {
-  const result = await fetch("https://fakestoreapi.com/products");
-  return await result.json();
-}
+import { fetchApi } from "./utils/fetch.js";
 
 // OBTENER LOS PRODUCTOS GUARDADOS EN LOCALSTORAGE
 const renderCarrito = async () => {
