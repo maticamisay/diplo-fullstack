@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="/">Home</a>
+      <a href="/new.html">Crear nuevo</a>
+      <a href="/cart.html">Carrito</a>
+    </nav>
+    <main class="container">
+      <h1>Agregar un producto</h1>
+      <form class="my-form">
+        <label for="title" class="form-label">Nombre:</label>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          class="form-input"
+        /><br /><br />
+        <label for="price" class="form-label">Precio:</label>
+        <input
+          type="text"
+          id="price"
+          name="price"
+          class="form-input"
+        /><br /><br />
+        <input type="submit" value="Crear" class="form-button" />
+      </form>
+    </main>
+  </body>
+  <script type="module" src="/js/new.js"></script>
+</html>

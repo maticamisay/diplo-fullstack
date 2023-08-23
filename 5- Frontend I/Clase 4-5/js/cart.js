@@ -1,9 +1,9 @@
 import { fetchApi } from "./utils/fetch.js";
+import { getLocalStorage, saveLocalStorage } from "./utils/localStorage.js";
 
-// OBTENER LOS PRODUCTOS GUARDADOS EN LOCALSTORAGE
 const renderCarrito = async () => {
   const container = document.querySelector("#productos");
-  const storage = JSON.parse(localStorage.getItem("products")) || [];
+  const storage = getLocalStorage("products") || [];
   const productos = await fetchApi();
 
   const cartProducts = productos.filter((product) => {
@@ -20,11 +20,19 @@ const renderCarrito = async () => {
     const button = document.createElement("button");
     button.textContent = "Eliminar";
     button.setAttribute("id", `productID-${product.id}`);
-    // button.addEventListener("click", saveProduct);
+    button.addEventListener("click", deleteEvent);
     div.appendChild(button);
     container.appendChild(div);
   });
 };
 
-// MOSTRAR LOS PRODUCTOS EN EL CARRITO, OBTENIENDO LA INFORMACIÓN DEL FETCH
+const deleteEvent = (event) => {
+  const nodo = event.target.parentNode;
+  nodo.remove();
+  const id = event.target.id.split("-")[1];
+  const storage = getLocalStorage("products") || [];
+  const filtered = storage.filter((product) => product !== id);
+  saveLocalStorage("products", filtered);
+};
+
 renderCarrito();

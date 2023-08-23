@@ -12,6 +12,10 @@ body,
   --color-4: #aaae8e;
   --color-5: #e0e0e0;
 }
+.container {
+  padding: 1rem;
+  margin: 2rem;
+}
 /* Navbar */
 .navbar {
   display: flex;
@@ -27,6 +31,7 @@ body,
   color: #fff;
   text-decoration: none;
   margin: 0 10px;
+  font-size: 20px;
 }
 
 /* Navbar link hover */
@@ -72,4 +77,56 @@ body,
 }
 .card p {
   color: var(--color-2);
+}
+
+.my-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem auto;
+  width: 50%;
+  padding: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-label {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.form-input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.form-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.3rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-button:hover {
+  background-color: #0069d9;
+}
+
+@media (max-width: 768px) {
+  .my-form {
+    width: 80%;
+  }
+}
+
+@media (max-width: 576px) {
+  .my-form {
+    width: 100%;
+  }
 }
