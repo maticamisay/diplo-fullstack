@@ -1,16 +1,5 @@
-const Button = ({ textButton, bg = "red", functionButton }) => {
-  return (
-    <button
-      style={{
-        backgroundColor: bg,
-        color: "white",
-        padding: "10px",
-      }}
-      onClick={functionButton}
-    >
-      {textButton}
-    </button>
-  );
-};
+function Button() {
+  return <button>Click</button>;
+}
 
 export default Button;
