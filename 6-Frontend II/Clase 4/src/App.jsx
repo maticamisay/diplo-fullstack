@@ -16,12 +16,11 @@ function App() {
       }, 3000);
     }
   }, [count]);
+
   return (
     <>
       <Container>
         <CounterDisplay>Contador: {count}</CounterDisplay>
-        {/* contador */}
-        {/* botón para incrementarlo */}
         <Button onClick={() => setCount(count + 1)}>Incrementar</Button>
         {showNotification && (
           <Notification>¡Has alcanzado un múltiplo de 10!</Notification>
