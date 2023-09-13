@@ -1,0 +1,24 @@
+*,
+:root,
+body,
+html {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+.bodyGlobal {
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap; /* Permite que los items se envuelvan al llegar al límite del contenedor */
+  gap: 20px;
+  padding: 20px;
+}
