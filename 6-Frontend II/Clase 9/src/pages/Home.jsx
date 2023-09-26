@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import useCheckLogin from "../hooks/useCheckLogin";
 import useUserLogin from "../store/useUserLogin";
+import ProductGrid from "../components/product/ProductGrid";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -11,6 +12,7 @@ const Home = () => {
   const fetchTodos = async () => {
     const response = await fetch("http://fakestoreapi.com/products");
     const data = await response.json();
+    console.log(data);
     setProducts(data);
     setFilteredProducts(data);
   };
@@ -39,20 +41,7 @@ const Home = () => {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      {filteredProducts
-        ? filteredProducts.map((product) => (
-            <div key={product.id}>
-              <h3>{product.title}</h3>
-              <p>{product.description}</p>
-              {user.rol === "admin" && (
-                <button onClick={() => console.log(product)}>Editar</button>
-              )}
-              {user.rol === "customer" && (
-                <button onClick={() => console.log(product)}>Comprar</button>
-              )}
-            </div>
-          ))
-        : null}
+      {filteredProducts ? <ProductGrid products={filteredProducts} /> : null}
     </>
   );
 };
